@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select name="pilihan" id="pilihan" onchange="changeLabel(this)">
+            <option disabled hidden selected>Pilih</option>
+            <option value="ada">Ada</option>
+            <option value="tidak">Tidak ada</option>
+        </select>
+        <div id="name_wrapper">
+            <label for="">Nama Lengkap Perekomendasi</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div id="job_wrapper">
+            <label for="">Kategori Perekomendasi</label>
+            <select name="Name" id="Name"  onchange = "ambilLabel(this)">
+                <option disabled hidden selected>Pilih Kategori</option>
+                <option value="Job1">Pekerja BRI</option>
+                <option value="Job2">Purnabakti</option>
+            </select>
+        </div>
+        <div id="ID_wrapper">
+            <label for="">Nomor ID Pegawai/KTA/PN/MP</label>
+            <input type="number" id="Nomor" name="Nomor">
+        </div>
+        <div id="jabatan_wrapper">
+            <label for="">Jabatan Perekomendasi</label>
+            <input type="text" id="jabatan" name="jabatan">
+        </div>
+    </form>
+    <script>
+        function changeLabel(e) {
+            let nameWrapper = document.getElementById("name_wrapper");
+            let jobWrapper = document.getElementById("job_wrapper");
+            let IDWrapper = document.getElementById("ID_wrapper");
+            let jabatanWrapper = document.getElementById("jabatan_wrapper");
+            if (e.value == "ada") {   
+                nameWrapper.style.display = "block";
+                jobWrapper.style.display ="block";
+                IDWrapper.style.display = "block" ;
+                jabatanWrapper.style.display ="block";
+             } else {
+                nameWrapper.style.display = "none";
+                jobWrapper.style.display ="none";
+                IDWrapper.style.display = "none" ;
+                jabatanWrapper.style.display ="none";
+            }
+        }
+
+        function ambilLabel (e){
+            let nameWrapper = document.getElementById("name_wrapper");
+            let jobWrapper = document.getElementById("job_wrapper");
+            let IDWrapper = document.getElementById("ID_wrapper");
+            let jabatanWrapper = document.getElementById("jabatan_wrapper");
+            if (e.value == "Job1"){
+                jabatanWrapper.style.display ="block";
+            } else{
+                jabatanWrapper.style.display ="none";
+            }
+        }
+    </script>
+</body>
+</html>

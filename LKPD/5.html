@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            border: 1px solid black;
+            height: auto;
+            width:200px ;
+            text-align: center;
+        }
+        .hitungMundur {
+            font-size: 50px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .message {
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>hitung Mundur</h1>
+    <div class="hitungMundur" id="hitungMundur">10</div>
+    <div class="pesan" id="pesan"></div>
+    <button onclick="startHitungMundur()">Mulai</button>
+    <button onclick="stopHitungMundur()">Berhenti</button>
+
+    <script>
+        let hitungMundur ;
+        let interval;
+
+        function startHitungMundur() {
+            let hitungMundurElement = document.getElementById("hitungMundur");
+            let pesanElement = document.getElementById("pesan");
+            let count =10;
+            hitungMundurElement.innerText = count;
+            pesanElement.innerText = ""; // Menghapus pesan sebelumnya
+            interval = setInterval(function() {
+                count--;
+                hitungMundurElement.innerText = count;
+                if (count < 1) {
+                    clearInterval(interval);
+                    pesanElement.innerText = "Waktu Habis";
+                    alert('waktu habis');
+                }
+            }, 1000);
+        }
+
+        function stopHitungMundur() {
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>

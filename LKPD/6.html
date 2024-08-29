@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" id="tanggal">
+    <button id="submit">submit</button>
+    <p id="status">tidak mencari data</p>
+    <script>
+        document.getElementById("submit").addEventListener("click", function(){
+            let status = document.getElementById("status");
+            let tanggal = document.getElementById("tanggal").value;
+            if (tanggal) {
+                status.textContent = "mencari data tanggal  " + tanggal;
+            }else{
+                status.textContent = "tidak mencari data";
+            }
+        });
+    </script>
+</body>
+</html>
